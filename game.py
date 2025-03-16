@@ -19,15 +19,19 @@ class Game:
 
     def run(self):
        while self.running:
-            # 
+            # display
             self.display.fill((20,120,230))
-            
             self.player.render(self.display)
+            
+            # update
+            self.player.update()
 
             for event in pygame.event.get():
-               if event.type == pygame.QUIT:
-                   self.running=False
-            
+                if event.type == pygame.QUIT:
+                    self.running=False
+            #     if event.type == pygame.KEYDOWN:
+            #         if event.key== pygame.K_a:
+            #             print('left')
             self.screen.blit(pygame.transform.scale2x(self.display),(0,0))            
             pygame.display.update()
             self.clock.tick(60)
